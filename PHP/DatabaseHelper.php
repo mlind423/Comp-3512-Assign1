@@ -2,13 +2,12 @@
 class Databasehelper{
     //Returns a connection object to a database 
     public static function createConnection($value=array()){
-        $connString = $value[0];
+        $host = $value[0];
         $user = $value[1];
         $password = $value[2];
-        $pdo = new PDO($connString,$user,$password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        return $pdo;
+        $name = $value[3];
+        $connection = mysqli_connect($host,$user,$password,$name);
+        return $connection;
         }
     public static function runQuery($connection, $sql, $parameters){
         $s = null; //$s == Statement
@@ -21,15 +20,28 @@ class Databasehelper{
             // use prepared statement if parameters
             $s = $connection->prepare($sql);
             $executedOk = $s->execute($parameters);
-            if(!$executedOk) throw new PDOException;
+            if(!$executedOk) throw new mysqli_sql_exception;
         }
         else{
             //execute normal query
-            $s = $connection->query($sql);
-            if (!$s) throw new PDOException;
+            $s = mysqli_query($connection, $sql);
+            if (!$s) throw new mysqli_sql_exception;
         }
         return $s;
     }
 
+}
+class MusicDB{
+    private static $baseSQL = "SELECT title FROM music";
+    public function __construct($connection)
+    {
+        $this->sqlite = $connection;
+    }
+    public function getAll(){
+        $sql = self::$baseSQL;
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+
+    }
 }
 ?>

@@ -1,3 +1,12 @@
+<?php
+require_once 'PHP/config.inc.php';
+require_once 'PHP/DatabaseHelper.php';
+
+try{
+    $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
+    musicGateway = new MusicDB;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
