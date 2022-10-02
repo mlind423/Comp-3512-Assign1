@@ -32,7 +32,7 @@ class Databasehelper{
     }
 
 }
-class Musicdb{
+class Artistdb{
     private static $baseSQL = "SELECT * FROM artists ORDER BY artist_id";
 
     public function __construct($connection)

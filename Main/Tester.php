@@ -5,8 +5,8 @@ require_once('database_helpers/DatabaseHelper.php');
 
 try{
     $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
-    $muGateway = new MusicDB($conn);
-    $music = $muGateway->getAll();
+    $artGateway = new ArtistDB($conn);
+    $artist = $artGateway->getAll();
 
     }catch(Exception $e){$e->getMessage();}
 ?>
@@ -16,7 +16,7 @@ try{
         <h1>Database Tester</h1> 
         Artist: </br>
                 <?php
-                foreach($music as $row){
+                foreach($artist as $row){
                     echo $row['artist_name'] . "</br>";
                 }
                 ?>
