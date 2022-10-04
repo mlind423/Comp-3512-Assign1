@@ -1,4 +1,7 @@
 <?php
+
+use Databasehelper as GlobalDatabasehelper;
+
 class Databasehelper{
     //Returns a connection object to a database 
     public static function createConnection($value=array()){
@@ -45,6 +48,35 @@ class Artistdb{
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
 
+    }
+}
+class SongDB{
+    private static $baseSQL = "SELECT * FROM songs";
+
+    public function __construct($connection){
+        $this->pdo = $connection;
+    }
+    public function getAll(){
+        $sql = self::$baseSQL . " INNER JOIN artists ORDER BY artist_id";
+        $s = GlobalDatabasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+}
+class MusicDB{
+    private static $baseSQL = "SELECT * FROM songs, artists, types, genres "; //This will display everything in the database connected together
+
+    public function __construct($connection){
+        $this->pdo = $connection;
+    }
+    public function getAll(){
+        $sql = self::$baseSQL;
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getSong($song_id){
+        $sql = self::$baseSQL . " WHERE songs.genre_id = genres.genre_id AND artists.artist_type_id = types.type_id AND songs.artist_id = artists.artist_id AND songs.song_id=?";
+        $s = Databasehelper::runQuery($this->pdo, $sql, array($song_id));
+        return $s->fetchAll();
     }
 }
 ?>
