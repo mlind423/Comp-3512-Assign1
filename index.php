@@ -8,5 +8,6 @@
 </head>
 <body>
     <p><a href="Main/Tester.php"> Click here to test</p>
+    <p><a href="Main/SongInfo.php"> Click here to test</p>
 </body>
 </html>
