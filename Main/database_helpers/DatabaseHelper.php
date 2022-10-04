@@ -63,7 +63,7 @@ class SongDB{
     }
 }
 class MusicDB{
-    private static $baseSQL = "SELECT * FROM songs, artists, types, genres "; //This will display everything in the database connected together
+    private static $baseSQL = "SELECT * FROM songs, artists, types, genres"; //This will display everything in the database connected together
 
     public function __construct($connection){
         $this->pdo = $connection;
@@ -78,5 +78,7 @@ class MusicDB{
         $s = Databasehelper::runQuery($this->pdo, $sql, array($song_id));
         return $s->fetchAll();
     }
+    
 }
+
 ?>

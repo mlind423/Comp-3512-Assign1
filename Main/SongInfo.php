@@ -25,8 +25,8 @@ try{
 <body>
     <div>
         <table> 
-                <?php //I don't know if table is the best way to display this information
-                foreach($song as $row){
+                <?php //used a table since I was originally displaying every item in the database in the page 
+                foreach($song as $row){ //TODO change this from being in a table once we start styling
                     echo "<tr>"; 
                     echo "<td>" . $row['title']  . ' </td>'; 
                     echo "<td>" . $row['artist_name']  . ' </td>';  
@@ -43,7 +43,7 @@ try{
     </div>
     <div>
         <ul>
-            <?php foreach($song as $row){?>
+            <?php foreach($song as $row){?> <!-- TODO Change this format once we start styling-->
                 <li>bpm, <?= $row['bpm']?></li>
                 <li>energy, <?= $row['energy']?></li>
                 <li>danceability, <?= $row['danceability']?></li>
