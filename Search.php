@@ -18,18 +18,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Search.css">
     <title>Search</title>
 </head>
 <body>
-    <header><h1?>Search</h1></header>
+    <header><h1>Search</h1></header>
     <div>
-        <form action="/Comp-3532-Assign1/Main/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
-            <fieldset id="title">
+        <form action="/Comp-3532-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
+            <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">
                 <label for="title">Title</label></br>
-                <input type="text" name="title">
-            </fieldset>
-            <fieldset id="artist">
+                <input type="text" name="title"> <!-- the query string will show up with the name of each of the input fields-->
+            </div>
+            <div id="artist" class="artist">
                 <input type="radio" name="main" value="artist" id="artist">
                 <label for="artist">Artist</label></br>
                 <select name="artist">
@@ -38,8 +39,8 @@
                         <option><?= $row['artist_name']//this is putting all the artists into a drop down menu?></option> 
                         <?php }?>
                 </select>
-            </fieldset>
-            <fieldset id="genre">
+            </div>
+            <div id="genre">
                 <input type="radio" name="main" value="Genre" id="genre">
                 <label for="genre">Genre</label></br>
                 <select name="genre">
@@ -48,32 +49,36 @@
                         <option><?= $row['genre_name']//this is putting all the genres into a drop down menu?></option> 
                         <?php }?>
                 </select>
-            </fieldset>
-            <fieldset id="year">
+                    </div>
+            <div id="year">
                 <input type="radio" name="main" value="Year" id="year">
                 <label for="year">Year</label></br>
-                <fieldset>
-                    <label for="greater">Greater</label>
+                <fieldset id="year_radio">
+                    
                     <input type="radio" name="year" value="greater" id="greater">
+                    <label for="greater">Greater</label>
                     <input type="number" min="2016" max="2018">
-                    <label for="less">Less</label>
+                    </br></br>
                     <input type="radio" name="year" value="less" id="less">
+                    <label for="less">Less</label>
                     <input type="number" min="2016" max="2018">
                 </fieldset>
-            </fieldset>
-            <fieldset id="popularity">
+                    </div>
+            <div id="popularity">
                 <input type="radio" name="main" value="Popularity" id="popularity">
                 <label for="popularity">Popularity</label>
-                <fieldset>
+                <fieldset id="pop_radio">
+                    
+                    <input type="radio"  value="greater" id="greater" name="popu">
                     <label for="greater">Greater</label>
-                    <input type="radio" name="year" value="greater" id="greater">
-                    <input type="number" min="0" max="100">
+                    <input type="number" name="greater" min="0" max="100">
+                    </br></br>
+                    <input type="radio"  value="less" id="less" name="popu">
                     <label for="less">Less</label>
-                    <input type="radio" name="year" value="less" id="less">
-                    <input type="number" min="0" max="100">
+                    <input type="number" name="less" min="0" max="100">
                 </fieldset>
-            </fieldset>
-            <input type="submit">
+            </div>
+            <input type="submit" id="submit">
         </form>
     </div>
     <footer></footer>
