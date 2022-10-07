@@ -22,7 +22,7 @@
     <title>Search</title>
 </head>
 <body>
-    <header><h1>Search</h1></header>
+        <h1>Search</h1>
     <div>
         <form action="/Comp-3532-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
             <div id="title" class="title">
@@ -31,7 +31,7 @@
                 <input type="text" name="title"> <!-- the query string will show up with the name of each of the input fields-->
             </div>
             <div id="artist" class="artist">
-                <input type="radio" name="main" value="artist" id="artist">
+                <input type="radio" name="main" value="Artist" id="artist">
                 <label for="artist">Artist</label></br>
                 <select name="artist">
                     <option value="" disabled selected>Select your option</option>
@@ -54,7 +54,6 @@
                 <input type="radio" name="main" value="Year" id="year">
                 <label for="year">Year</label></br>
                 <fieldset id="year_radio">
-                    
                     <input type="radio" name="year" value="greater" id="greater">
                     <label for="greater">Greater</label>
                     <input type="number" min="2016" max="2018">
@@ -68,7 +67,6 @@
                 <input type="radio" name="main" value="Popularity" id="popularity">
                 <label for="popularity">Popularity</label>
                 <fieldset id="pop_radio">
-                    
                     <input type="radio"  value="greater" id="greater" name="popu">
                     <label for="greater">Greater</label>
                     <input type="number" name="greater" min="0" max="100">
