@@ -8,6 +8,12 @@
     <title>Song browser</title>
 </head>
 <body>
+    <?php include('Header.php')?>
     
+
+
+
+
+    <?php include('Footer.php')?>
 </body>
 </html>

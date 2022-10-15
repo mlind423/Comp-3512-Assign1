@@ -23,6 +23,7 @@ try{
     <title>Song Info</title>
 </head>
 <body>
+    <?php include('Header.php')?>
     <div>
         <table> 
                 <?php //used a table since I was originally displaying every item in the database in the page 
@@ -64,5 +65,6 @@ try{
             <?php }?>
         
     </div>
+    <?php include('Footer.php')?>
 </body>
 </html>
