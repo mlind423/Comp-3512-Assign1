@@ -56,21 +56,31 @@ class SongDB{
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
+    public function get50(){
+        $sql = self::$baseSQL . " INNER JOIN artists ORDER BY artist_id LIMIT 50";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
 }
 class MusicDB{
     //I should change this later im just lazy 
-    private static $baseSQL = "SELECT * FROM songs, artists, types, genres"; //This will display everything in the database so this should NOT be used without a where statement
+    private static $baseSQL = "SELECT * FROM songs, artists, types, genres WHERE songs.genre_id = genres.genre_id AND artists.artist_type_id = types.type_id AND songs.artist_id = artists.artist_id"; //This will display everything in the database so this should NOT be used without a where statement
 
     public function __construct($connection){
         $this->pdo = $connection;
     }
-    public function getAll(){ //don't use this function 
-        $sql = self::$baseSQL;
+    public function getAll(){ 
+        $sql = self::$baseSQL . " ORDER BY title";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function get50(){ 
+        $sql = self::$baseSQL . " LIMIT 50 ORDER BY title";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
     public function getSong($song_id){
-        $sql = self::$baseSQL . " WHERE songs.genre_id = genres.genre_id AND artists.artist_type_id = types.type_id AND songs.artist_id = artists.artist_id AND songs.song_id=?";
+        $sql = self::$baseSQL . " AND songs.song_id=?";
         $s = Databasehelper::runQuery($this->pdo, $sql, array($song_id));
         return $s->fetchAll(); //idk if i should be using this or just the fetch function
     }

@@ -22,7 +22,8 @@
     <title>Search</title>
 </head>
 <body>
-        <h1>Search</h1>
+    <?php include('Header.php')?>
+    <h1>Search</h1>
     <div>
         <form action="/Comp-3532-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
             <div id="title" class="title">
@@ -79,6 +80,6 @@
             <input type="submit" id="submit">
         </form>
     </div>
-    <footer></footer>
+    <?php include('Footer.php')?>
 </body>
 </html>
