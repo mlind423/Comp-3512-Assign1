@@ -79,6 +79,14 @@ class MusicDB{
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
+    public function getConditions($sqlArray, $valueArray){ 
+        $sql = self::$baseSQL;
+        for($i=0; $i<count($sqlArray); $i++){
+            $sql .= " AND" . $sqlArray[$i];
+        }
+        $s = Databasehelper::runQuery($this->pdo, $sql, $valueArray);
+        return $s->fetchAll();
+    }
     public function getSong($song_id){
         $sql = self::$baseSQL . " AND songs.song_id=?";
         $s = Databasehelper::runQuery($this->pdo, $sql, array($song_id));

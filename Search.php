@@ -25,7 +25,7 @@
     <?php include('Header.php')?>
     <h1>Search</h1>
     <div>
-        <form action="/Comp-3532-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
+        <form action="/Comp-3512-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
             <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">
                 <label for="title">Title</label></br>
@@ -44,7 +44,7 @@
             <div id="genre">
                 <input type="radio" name="main" value="Genre" id="genre">
                 <label for="genre">Genre</label></br>
-                <select name="genre">
+                <select name="genre_name">
                     <option value="" disabled selected>Select your option</option>
                     <?php foreach($genre as $row){?>
                         <option><?= $row['genre_name']//this is putting all the genres into a drop down menu?></option> 
