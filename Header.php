@@ -2,7 +2,7 @@
     ?>
     <header>
         <h1>COMP 3512 Assign1</h1>
-        <h3>(Please write your name), Spencer Reid</h3>
+        <h3>Matthew Lindstrom, Spencer Reid</h3>
         <nav> 
             <a href="HomePage.html">Home</a>
             <a href="Search.php">Search</a>

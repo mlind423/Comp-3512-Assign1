@@ -5,7 +5,7 @@
 
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
-        $songGateway = new MusicDB($conn);
+        $songGateway = new MusicDB($conn); //If this is not working you might want to create a new helper class databaseHelper file since it might not work with the one you are useing right now.
         if(!empty($_GET['title'])){
             $AddSQL[] = " title LIKE ?";
             $AddValue[] = "%".$_GET['title']."%";
