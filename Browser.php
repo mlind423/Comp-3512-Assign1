@@ -1,5 +1,6 @@
 <!-- You are going to need to do a lot of if/else statements to determine the search params -->
 <?php
+    session_start();
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
 
@@ -7,11 +8,11 @@
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
         $songGateway = new MusicDB($conn); //If this is not working you might want to create a new helper class databaseHelper file since it might not work with the one you are useing right now.
         if(!empty($_GET['title'])){
-            $AddSQL[] = " title LIKE ?";
+            $AddSQL .= " AND title LIKE ?";
             $AddValue[] = "%".$_GET['title']."%";
         }
         if(!empty($_GET['artist'])){
-            $AddSQL[] = " artist_name LIKE ?";
+            $AddSQL  .= " AND artist_name LIKE ?";
             $AddValue[] = $_GET['artist'];
         }
         /* if(!empty($_GET['year'])){
@@ -20,15 +21,15 @@
         } */
         if(!empty($_GET['year'])){
             if ($_GET['year']== "less"){
-                $AddSQL[] = " year <= ?";
+                $AddSQL .$_ENV= " AND year <= ?";
                 $AddValue[] = $_GET['year_less'];
             }elseif($_GET['year']== "greater"){
-                $AddSQL[] = " year >= ?";
+                $AddSQL  .= " AND year >= ?";
                 $AddValue[] = $_GET['year_greater'];
             }
         }
         if(!empty($_GET['genre_name'])){
-            $AddSQL[] = " genre_name LIKE ?";
+            $AddSQL .= " AND genre_name LIKE ?";
             $AddValue[] = $_GET['genre_name'];
         }
         /* if(!empty($_GET['popularity'])){
@@ -37,10 +38,10 @@
         } */
         if(!empty($_GET['popu'])){
             if ($_GET['popu']== "less"){
-                $AddSQL[] = " popularity <= ?";
+                $AddSQL .= " popularity <= ?";
                 $AddValue[] = $_GET['pop_less'];
             }elseif ($_GET['popu']== "greater"){
-                $AddSQL[] = " popularity >= ?";
+                $AddSQL .= " popularity >= ?";
                 $AddValue[] = $_GET['pop_greater'];
             }
         }

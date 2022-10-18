@@ -74,23 +74,16 @@ class MusicDB{
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
-    public function get50(){ 
-        $sql = self::$baseSQL . " LIMIT 50 ORDER BY title";
-        $s = Databasehelper::runQuery($this->pdo, $sql, null);
-        return $s->fetchAll();
-    }
-    public function getConditions($sqlArray, $valueArray){ 
+    public function getConditions($sqlStr, $valueArray){ 
         $sql = self::$baseSQL;
-        for($i=0; $i<count($sqlArray); $i++){
-            $sql .= " AND" . $sqlArray[$i];
-        }
+        $sql .=  $sqlStr;
         $s = Databasehelper::runQuery($this->pdo, $sql, $valueArray);
         return $s->fetchAll();
     }
     public function getSong($song_id){
         $sql = self::$baseSQL . " AND songs.song_id=?";
         $s = Databasehelper::runQuery($this->pdo, $sql, array($song_id));
-        return $s->fetchAll(); //idk if i should be using this or just the fetch function
+        return $s->fetchAll();
     }
     
 }

@@ -29,13 +29,18 @@ try{
                 <?php //used a table since I was originally displaying every item in the database in the page 
                 foreach($song as $row){ //TODO change this from being in a table once we start styling
                     $length = $row['duration'];
+                    $minutes = number_format($length/60, 0);
+                    $seconds = number_format($length%60);
+                    if ($seconds < 10){
+                        $seconds = "0$seconds";
+                    }
                     echo "<tr>"; 
                     echo "<td>" . $row['title']  . ' </td>'; 
                     echo "<td>" . $row['artist_name']  . ' </td>';  
                     echo "<td>" . $row['type_name']  . ' </td>';
                     echo "<td>" . $row['genre_name']  . ' </td>'; 
                     echo "<td>" . $row['year']  . ' </td>'; 
-                    echo "<td>" . (number_format($length/60, 0)) . ":" . number_format($length%60)  . ' </td>'; //This does not work great for single digit seconds 
+                    echo "<td>" . $minutes . ":"  . $seconds . ' </td>'; //This does not work great for single digit seconds 
                     echo "</tr>";
                 }
                 ?>

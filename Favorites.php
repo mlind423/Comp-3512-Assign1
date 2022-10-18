@@ -1,18 +1,33 @@
-<!-- You are going to need to do a lot of if/else statements to determine the search params -->
 <?php
+    session_start();
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
 
+    if(!empty($_GET["AddID"])){
+        $_SESSION["Song" . $_GET['AddID']] = $_GET["AddID"];
+    }
+    if(!empty($_GET["RemID"])){
+        unset($_SESSION["Song" . $_GET["RemID"]]); 
+    }
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
         $songGateway = new MusicDB($conn);
-        
-        if(empty($AddSQL)){
-            $songs = $songGateway->getAll();  
+        $AddSQL = " AND (";
+        foreach($_SESSION as $key => $val){                     
+            if($AddSQL == " AND ("){
+                $AddSQL .= " song_id = ?";
+            }
+            else{
+                $AddSQL .= " OR song_id = ?";
+            }
+            $AddValue[] = $val; 
         }
-        else{
+        $AddSQL .= ")";
+        if(!empty($AddValue)){
             $songs = $songGateway->getConditions($AddSQL, $AddValue);
         }
+        
+        
     }catch(Exception $e){$e->getMessage();}
 ?>
 
@@ -36,24 +51,25 @@
                 <th>Popularity</th>
             </tr>
             <?php
-            foreach($songs as $curr){
-                ?>
-                <tr>
-                    <th><?=$curr['title']?></th>
-                    <th><?=$curr['artist_name']?></th>
-                    <th><?=$curr['year']?></th>
-                    <th><?=$curr['genre_name']?></th>
-                    <th><?=$curr['popularity']?></th>
-                    <th><a class="Fav_Button" href="Favorites.php?AddID=<?=$curr["song_id"]?>">
-                        Add to Favorites
-                    </a></th>
-                    <th><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
-                        View
-                    </a></th>
-                </tr>    
+            if(!empty($songs)){
+                foreach($songs as $curr){
+                    ?>
+                    <tr>
+                        <th><?=$curr['title']?></th>
+                        <th><?=$curr['artist_name']?></th>
+                        <th><?=$curr['year']?></th>
+                        <th><?=$curr['genre_name']?></th>
+                        <th><?=$curr['popularity']?></th>
+                        <th><a class="Fav_Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
+                            Remove to Favorites
+                        </a></th>
+                        <th><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                            View
+                        </a></th>
+                    </tr>    
                 <?php
+                }
             }
-            
             ?>
         </table>    
     </div> 
