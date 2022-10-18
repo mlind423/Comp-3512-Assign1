@@ -18,7 +18,7 @@
             $AddSQL[] = " year = ?";
             $AddValue[] = $_GET['year'];
         } */
-        if(!empty($_GET['year']){
+        if(!empty($_GET['year'])){
             if ($_GET['year']== "less"){
                 $AddSQL[] = " year <= ?";
                 $AddValue[] = $_GET['year_less'];
@@ -31,9 +31,18 @@
             $AddSQL[] = " genre_name LIKE ?";
             $AddValue[] = $_GET['genre_name'];
         }
-        if(!empty($_GET['popularity'])){
+        /* if(!empty($_GET['popularity'])){
             $AddSQL[] = " popularity LIKE ?";
             $AddValue[] = $_GET['popularity'];
+        } */
+        if(!empty($_GET['popu'])){
+            if ($_GET['popu']== "less"){
+                $AddSQL[] = " popularity <= ?";
+                $AddValue[] = $_GET['pop_less'];
+            }elseif ($_GET['popu']== "greater"){
+                $AddSQL[] = " popularity >= ?";
+                $AddValue[] = $_GET['pop_greater'];
+            }
         }
 
         if(empty($AddSQL)){
