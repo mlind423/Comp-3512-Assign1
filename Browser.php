@@ -1,6 +1,5 @@
 <!-- You are going to need to do a lot of if/else statements to determine the search params -->
 <?php
-    session_start();//This will start the session so we can to the superglobal.
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
 
