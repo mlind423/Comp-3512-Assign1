@@ -6,36 +6,7 @@
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
         $songGateway = new MusicDB($conn);
-        if(!empty($_GET['title'])){
-            $AddSQL[] = " title LIKE ?";
-            $AddValue[] = "%".$_GET['title']."%";
-        }
-        if(!empty($_GET['artist'])){
-            $AddSQL[] = " artist_name LIKE ?";
-            $AddValue[] = $_GET['artist'];
-        }
-        /* if(!empty($_GET['year'])){
-            $AddSQL[] = " year = ?";
-            $AddValue[] = $_GET['year'];
-        } */
-        if(!empty($_GET['year']){
-            if ($_GET['year']== "less"){
-                $AddSQL[] = " year <= ?";
-                $AddValue[] = $_GET['year_less'];
-            }elseif($_GET['year']== "greater"){
-                $AddSQL[] = " year >= ?";
-                $AddValue[] = $_GET['year_greater'];
-            }
-        }
-        if(!empty($_GET['genre_name'])){
-            $AddSQL[] = " genre_name LIKE ?";
-            $AddValue[] = $_GET['genre_name'];
-        }
-        if(!empty($_GET['popularity'])){
-            $AddSQL[] = " popularity LIKE ?";
-            $AddValue[] = $_GET['popularity'];
-        }
-
+        
         if(empty($AddSQL)){
             $songs = $songGateway->getAll();  
         }

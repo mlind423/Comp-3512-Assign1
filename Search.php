@@ -57,11 +57,11 @@
                 <fieldset id="year_radio">
                     <input type="radio" name="year" value="greater" id="greater">
                     <label for="greater">Greater</label>
-                    <input type="number" min="2016" max="2018">
+                    <input type="number" name="year_greater" min="2016" max="2018">
                     </br></br>
                     <input type="radio" name="year" value="less" id="less">
                     <label for="less">Less</label>
-                    <input type="number" min="2016" max="2018">
+                    <input type="number" name="year_less" min="2016" max="2018">
                 </fieldset>
                     </div>
             <div id="popularity">
@@ -70,11 +70,11 @@
                 <fieldset id="pop_radio">
                     <input type="radio"  value="greater" id="greater" name="popu">
                     <label for="greater">Greater</label>
-                    <input type="number" name="greater" min="0" max="100">
+                    <input type="number" name="pop_greater" min="0" max="100">
                     </br></br>
                     <input type="radio"  value="less" id="less" name="popu">
                     <label for="less">Less</label>
-                    <input type="number" name="less" min="0" max="100">
+                    <input type="number" name="pop_less" min="0" max="100">
                 </fieldset>
             </div>
             <input type="submit" id="submit">
