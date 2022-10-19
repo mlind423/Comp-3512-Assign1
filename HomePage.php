@@ -4,34 +4,16 @@
     
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
+        $feat = new Featured($conn);
+        //Using the databasehelper to run all the query since it will make this page less crowded.
         // Top Genres
-        $sql = "SELECT genres.genre_name, count(genres.genre_id)
-        FROM genres, songs
-        WHERE songs.genre_id = genres.genre_id
-        GROUP BY genres.genre_id
-        ORDER BY count(genres.genre_id) DESC
-        LIMIT 10";
-        
-        $Top_Genres =  Databasehelper::runQuery($conn, $sql, null);
-
+        $tg = $feat->getTopGenres();
         // Top Artists
-        $sql = "SELECT artists.artist_name, count(artists.artist_id)
-        FROM artists, songs
-        WHERE songs.artist_id = artists.artist_id
-        GROUP BY artists.artist_id
-        ORDER BY count(artists.artist_id) DESC
-        LIMIT 10";
-
-        $Top_Genres =  Databasehelper::runQuery($conn, $sql, null);
-
+        $ta = $feat->getTopArtists();
         // Most Popular Songs
-        $sql = "SELECT artists.artist_name, title
-        FROM artists, songs
-        WHERE songs.artist_id = artists.artist_id
-        ORDER BY popularity DESC
-        LIMIT 10";
-
-        $Most_Popular_Songs = Databasehelper::runQuery($conn, $sql, null);
+        $topSong = $feat->getTopSongs();
+        //One hit wonders 
+        $oneHitWonder = $feat->getOneHitWonders();
     }catch(Exception $e){$e->getMessage();}
 ?>
 <!DOCTYPE html>
@@ -44,31 +26,39 @@
 </head>
 <body>
     <?php include('Header.php')?>   
-        <div>
+        <ul>
         <h1>Top Genres</h1>
+            <?php foreach($tg as $row){
+                    echo "<li>" . $row['genre_name'] . "</li>";}?>
+        </ul>
+        <ul>
+        <h1>Top Artists</h1>
+        <?php foreach($ta as $row){
+                echo "<li>" . $row['artist_name'] . "</li>";}?>
+                
+        </ul>
+        <ul>
+        <h1>Top Songs</h1>
+        <?php foreach($topSong as $row){
+                echo "<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+        </ul>
+        <ul>
+        <h1>One Hit Wonders</h1>
+        <?php foreach($oneHitWonder as $row){
+                echo "<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+        </ul>
+        <ul>
+        
+        </ul>
+        <ul>
+          
+        </ul>
+        <ul>
 
-        </div>
-        <div>
-        <a href="featured.php?feat=top_artists">Top Artists</a>
-        </div>
-        <div>
-        <a href="featured.php?feat=most_pop_songs">Most Popular Songs</a>
-        </div>
-        <div>
-        <a href="featured.php?feat=one_hit_wonder">One Hit Wonders</a>
-        </div>
-        <div>
-        <a href="featured.php?feat=longest_acoustic">Longest Acoutic Songs</a>
-        </div>
-        <div>
-        <a href="featured.php?feat=at_the_club">At the Club</a>
-        </div>
-        <div>
-        <a href="featured.php?feat=running_songs">Running Songs</a>
-        </div> 
-        <div>
-        <a href="featured.php?feat=studying">Studying</a>
-        </div>
+        </ul> 
+        <ul>
+        
+        </ul>
     <?php include('Footer.php')?>
 </body>
 </html>

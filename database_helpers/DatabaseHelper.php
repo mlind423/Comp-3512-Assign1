@@ -102,4 +102,49 @@ class GenreDB{
 
     }
 }
+class Featured{
+
+    public function __construct($connection){
+        $this->pdo = $connection;
+    }
+
+    public function getTopGenres(){
+        $sql = "SELECT genres.genre_name, count(genres.genre_id)
+        FROM genres, songs
+        WHERE songs.genre_id = genres.genre_id
+        GROUP BY genres.genre_id
+        ORDER BY count(genres.genre_id) DESC
+        LIMIT 10";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getTopArtists(){
+        $sql = "SELECT artists.artist_name, count(artists.artist_id)
+        FROM artists, songs
+        WHERE songs.artist_id = artists.artist_id
+        GROUP BY artists.artist_id
+        ORDER BY count(artists.artist_id) DESC
+        LIMIT 10";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getTopSongs(){
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name
+        FROM artists, songs 
+        WHERE artists.artist_id = songs.artist_id
+        ORDER BY songs.popularity DESC
+        LIMIT 10";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getOneHitWonders(){
+        $sql = "SELECT DISTINCT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name
+        FROM artists, songs 
+        WHERE artists.artist_id = songs.artist_id
+        ORDER BY songs.popularity DESC
+        LIMIT 10";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+}
 ?>
