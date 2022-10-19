@@ -1,3 +1,8 @@
+<?php
+    require_once('database_helpers/config.inc.php'); 
+    require_once('database_helpers/DatabaseHelper.php');
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,12 @@
     <title>featured</title>
 </head>
 <body>
+    <?php include('Header.php')  
     
+
+
+
+
+    include('Footer.php')?>
 </body>
 </html>

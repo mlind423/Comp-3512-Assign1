@@ -78,17 +78,17 @@
             foreach($songs as $curr){
                 ?>
                 <tr>
-                    <th><?=$curr['title']?></th>
-                    <th><?=$curr['artist_name']?></th>
-                    <th><?=$curr['year']?></th>
-                    <th><?=$curr['genre_name']?></th>
-                    <th><?=$curr['popularity']?></th>
-                    <th><a class="Fav_Button" href="Favorites.php?AddID=<?=$curr["song_id"]?>">
+                    <td><?=$curr['title']?></td>
+                    <td><?=$curr['artist_name']?></td>
+                    <td><?=$curr['year']?></td>
+                    <td><?=$curr['genre_name']?></td>
+                    <td><?=$curr['popularity']?></td>
+                    <td><a class="Fav_Button" href="Favorites.php?AddID=<?=$curr["song_id"]?>">
                         Add to Favorites
-                    </a></th>
-                    <th><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                    </a></td>
+                    <td><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
                         View
-                    </a></th>
+                    </a></td>
                 </tr>    
                 <?php
             }
