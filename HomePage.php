@@ -7,13 +7,22 @@
         $feat = new Featured($conn);
         //Using the databasehelper to run all the query since it will make this page less crowded.
         // Top Genres
-        $tg = $feat->getTopGenres();
+        $topGenre = $feat->getTopGenres();
         // Top Artists
-        $ta = $feat->getTopArtists();
+        $topSong = $feat->getTopArtists();
         // Most Popular Songs
         $topSong = $feat->getTopSongs();
-        //One hit wonders 
+        // One hit wonders 
         $oneHitWonder = $feat->getOneHitWonders();
+        // acousticness
+        $acoustic = $feat->getLongestAcousticSong();
+        //At the club
+        $club = $feat->getAtTheClub();
+        //running
+        $run = $feat->getRunning();
+        //study
+        $study = $feat->getStudy();
+        
     }catch(Exception $e){$e->getMessage();}
 ?>
 <!DOCTYPE html>
@@ -28,19 +37,18 @@
     <?php include('Header.php')?>   
         <ul>
         <h1>Top Genres</h1>
-            <?php foreach($tg as $row){
+            <?php foreach($topGenre as $row){
                     echo "<li>" . $row['genre_name'] . "</li>";}?>
         </ul>
         <ul>
         <h1>Top Artists</h1>
-        <?php foreach($ta as $row){
-                echo "<li>" . $row['artist_name'] . "</li>";}?>
-                
+        <?php foreach($topSong as $row){
+                echo "<li>" . $row['artist_name'] . "</li>";}?>     
         </ul>
         <ul>
         <h1>Top Songs</h1>
         <?php foreach($topSong as $row){
-                echo "<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+                echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . ' By ' . $row['artist_name'] . "</a></li>";}?>
         </ul>
         <ul>
         <h1>One Hit Wonders</h1>
@@ -48,16 +56,24 @@
                 echo "<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
-        
+            <h1>Longest Acoustic Song</h1>
+            <?php foreach($acoustic as $row){
+                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
-          
+        <h1>At The Club</h1>
+            <?php foreach($club as $row){
+                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
-
+        <h1>Running songs</h1>
+            <?php foreach($run as $row){
+                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
         </ul> 
         <ul>
-        
+        <h1>Study Songs</h1>
+            <?php foreach($study as $row){
+                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
         </ul>
     <?php include('Footer.php')?>
 </body>

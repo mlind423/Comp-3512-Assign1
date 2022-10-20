@@ -119,7 +119,7 @@ class Featured{
         return $s->fetchAll();
     }
     public function getTopArtists(){
-        $sql = "SELECT artists.artist_name, count(artists.artist_id)
+        $sql = "SELECT artists.artist_name, count(artists.artist_id), songs.song_id
         FROM artists, songs
         WHERE songs.artist_id = artists.artist_id
         GROUP BY artists.artist_id
@@ -129,7 +129,7 @@ class Featured{
         return $s->fetchAll();
     }
     public function getTopSongs(){
-        $sql = "SELECT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name, songs.song_id
         FROM artists, songs 
         WHERE artists.artist_id = songs.artist_id
         ORDER BY songs.popularity DESC
@@ -138,11 +138,35 @@ class Featured{
         return $s->fetchAll();
     }
     public function getOneHitWonders(){
-        $sql = "SELECT DISTINCT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name
+        $sql = "SELECT DISTINCT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name, songs.song_id
         FROM artists, songs 
         WHERE artists.artist_id = songs.artist_id
         ORDER BY songs.popularity DESC
         LIMIT 10";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getLongestAcousticSong(){
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.acousticness, artists.artist_name, songs.duration, songs.song_id
+        FROM artists, songs
+        WHERE songs.acousticness > 40 && artists.artist_id = songs.artist_id 
+        ORDER BY songs.duration DESC
+        LIMIT 10"; // This sql statment is not working 
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getAtTheClub(){
+        $sql = "";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getRunning(){
+        $sql = "";
+        $s = Databasehelper::runQuery($this->pdo, $sql, null);
+        return $s->fetchAll();
+    }
+    public function getStudy(){
+        $sql = "";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
