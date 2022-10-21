@@ -3,7 +3,7 @@
     --HeaderFooter:#2D1D44;
 }
 body{
-    min-width: 99vw;
+    min-width: 100%;
     position: relative;
     min-height: 99vh;
     margin-left: auto;
@@ -11,29 +11,30 @@ body{
     background-color:  var(--Background);
 }
 nav{
-    width: 100%;
+    width: 90%;
     margin: auto;
     padding: 5px;
+    display: flex;
+    justify-content: space-around;
 }
 header{
     position: fixed;
     top: 0;
     background-color: var(--HeaderFooter);
     margin: 0;
-    width: 100vw;
+    width: 100%;
     padding: 6px;
 }
 header h1, h3{
     margin: auto;
-    width: 20vw;
+    width: 90%;
+    text-align: center;
     color: white;
 }
 header a{
     position: relative;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 7.5vw;
-    margin-right: 7.5vw;
     padding: 8px;
     border: 1px var(--HeaderFooter);
     background-color: var(--HeaderFooter);
@@ -53,11 +54,35 @@ header a:hover{
 
 footer{
     position: absolute;
-    bottom: 0%;
+    bottom: 0;
     width: 100%;
     background-color: var(--HeaderFooter);
     margin: auto;
     color: white;
+}
+.Github{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+footer a{
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 8px;
+    border: 1px var(--HeaderFooter);
+    background-color: var(--HeaderFooter);
+    text-decoration: none;
+    text-size-adjust: 14pt;
+}
+footer a:visited{
+    color: white;
+}
+footer a:link{
+    color: white;
+}
+footer a:hover{
+    background-color: #7D3C98;
 }
 
 .content{
