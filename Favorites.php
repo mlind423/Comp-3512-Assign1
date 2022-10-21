@@ -3,11 +3,12 @@
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
 
-    if(!empty($_GET["AddID"])){
-        $_SESSION["Song" . $_GET['AddID']] = $_GET["AddID"];
-    }
     if(!empty($_GET["RemID"])){
+        
         unset($_SESSION["Song" . $_GET["RemID"]]); 
+    }
+    if(!empty($_GET["RemAll"]) && ($_GET["RemAll"] == "yes")){
+        session_unset();
     }
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
@@ -49,6 +50,7 @@
                 <th>Year</th>
                 <th>Genre</th>
                 <th>Popularity</th>
+                <th><a href="Favorites.php?RemAll=yes">Remove All</a></th>
             </tr>
             <?php
             if(!empty($songs)){
@@ -61,7 +63,7 @@
                         <th><?=$curr['genre_name']?></th>
                         <th><?=$curr['popularity']?></th>
                         <th><a class="Fav_Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
-                            Remove to Favorites
+                            Remove From Favorites
                         </a></th>
                         <th><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
                             View

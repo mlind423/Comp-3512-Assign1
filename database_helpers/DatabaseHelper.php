@@ -138,35 +138,49 @@ class Featured{
         return $s->fetchAll();
     }
     public function getOneHitWonders(){
-        $sql = "SELECT DISTINCT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name, songs.song_id
+        $sql = "SELECT songs.artist_id, artists.artist_id, songs.popularity, songs.title, artists.artist_name, songs.song_id
         FROM artists, songs 
         WHERE artists.artist_id = songs.artist_id
+        GROUP BY songs.artist_id
+        HAVING COUNT(*) = 1
         ORDER BY songs.popularity DESC
         LIMIT 10";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
     public function getLongestAcousticSong(){
-        $sql = "SELECT artists.artist_id, songs.artist_id, songs.acousticness, artists.artist_name, songs.duration, songs.song_id
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.acousticness, artists.artist_name, songs.duration, songs.song_id, songs.title
         FROM artists, songs
-        WHERE songs.acousticness > 40 && artists.artist_id = songs.artist_id 
+        WHERE songs.acousticness > 40 AND artists.artist_id = songs.artist_id 
         ORDER BY songs.duration DESC
-        LIMIT 10"; // This sql statment is not working 
+        LIMIT 10";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
     public function getAtTheClub(){
-        $sql = "";
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.popularity, songs.title, artists.artist_name, songs.song_id, (songs.energy * 1.4) AS v1, (songs.danceability * 1.6) AS v2
+        FROM artists, songs 
+        WHERE artists.artist_id = songs.artist_id
+        ORDER BY (v1 + v2) DESC
+        LIMIT 10";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
     public function getRunning(){
-        $sql = "";
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.popularity, songs.title, songs.bpm, artists.artist_name, songs.song_id, (songs.energy * 1.3) AS v1, (songs.valence * 1.6) AS v2
+        FROM artists, songs 
+        WHERE artists.artist_id = songs.artist_id AND songs.bpm BETWEEN 120 AND 125
+        ORDER BY (v1 + v2) DESC
+        LIMIT 10";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }
     public function getStudy(){
-        $sql = "";
+        $sql = "SELECT artists.artist_id, songs.artist_id, songs.popularity, songs.bpm, songs.title, artists.artist_name, songs.song_id, songs.speechiness, (songs.acousticness * 0.8) AS v1, (100 - songs.speechiness) AS v2, (100 - songs.valence) AS v3
+        FROM artists, songs 
+        WHERE artists.artist_id = songs.artist_id AND songs.speechiness BETWEEN 1 AND 20 AND songs.bpm BETWEEN 120 AND 125 
+        ORDER BY (v1 + v2 + v3) DESC
+        LIMIT 10";
         $s = Databasehelper::runQuery($this->pdo, $sql, null);
         return $s->fetchAll();
     }

@@ -1,6 +1,5 @@
 <!-- You are going to need to do a lot of if/else statements to determine the search params -->
 <?php
-    session_start();
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
 
@@ -83,7 +82,7 @@
                     <td><?=$curr['year']?></td>
                     <td><?=$curr['genre_name']?></td>
                     <td><?=$curr['popularity']?></td>
-                    <td><a class="Fav_Button" href="Favorites.php?AddID=<?=$curr["song_id"]?>">
+                    <td><a class="Fav_Button" href="addToFavorites.php?AddID=<?=$curr["song_id"]?>">
                         Add to Favorites
                     </a></td>
                     <td><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">

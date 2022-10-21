@@ -6,7 +6,7 @@
         <nav> 
             <a href="HomePage.php">Home</a>
             <a href="Search.php">Search</a>
-            <a href="SongInfo.php">Song Stats</a>
+            <a href="SongInfo.php">Single Song</a>
             <a href="Browser.php">Browse</a>
             <a href="Favorites.php">Favorites</a>
             

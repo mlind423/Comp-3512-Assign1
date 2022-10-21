@@ -8,7 +8,7 @@ try{
     if(!empty($_GET['songID'])){
         $song = $musicGateway->getSong($_GET['songID']);
       }else{
-        $song = $musicGateway->getSong(1001);//will be set to the first song in the database unless otherwise specified which it should always be specified 
+        $song = $musicGateway->getSong(1001);//will be set to the first song in the database unless otherwise specified
       }
       $conn = null;
     }catch(Exception $e){$e->getMessage();}
@@ -40,7 +40,7 @@ try{
                     echo "<td>" . $row['type_name']  . ' </td>';
                     echo "<td>" . $row['genre_name']  . ' </td>'; 
                     echo "<td>" . $row['year']  . ' </td>'; 
-                    echo "<td>" . $minutes . ":"  . $seconds . ' </td>'; //This does not work great for single digit seconds 
+                    echo "<td>" . $minutes . ":"  . $seconds . ' </td>';  
                     echo "</tr>";
                 }
                 ?>

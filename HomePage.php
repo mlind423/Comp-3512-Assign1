@@ -48,32 +48,32 @@
         <ul>
         <h1>Top Songs</h1>
         <?php foreach($topSong as $row){
-                echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . ' By ' . $row['artist_name'] . "</a></li>";}?>
+                echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
         <h1>One Hit Wonders</h1>
         <?php foreach($oneHitWonder as $row){
-                echo "<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+                echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
             <h1>Longest Acoustic Song</h1>
             <?php foreach($acoustic as $row){
-                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
         <h1>At The Club</h1>
             <?php foreach($club as $row){
-                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
         </ul>
         <ul>
         <h1>Running songs</h1>
             <?php foreach($run as $row){
-                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
         </ul> 
         <ul>
         <h1>Study Songs</h1>
             <?php foreach($study as $row){
-                    echo"<li>" . $row['title'] . " By " . $row['artist_name'] . "</li>";}?>
+                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
         </ul>
     <?php include('Footer.php')?>
 </body>
