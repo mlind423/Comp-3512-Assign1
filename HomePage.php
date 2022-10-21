@@ -9,7 +9,7 @@
         // Top Genres
         $topGenre = $feat->getTopGenres();
         // Top Artists
-        $topSong = $feat->getTopArtists();
+        $topArtist = $feat->getTopArtists();
         // Most Popular Songs
         $topSong = $feat->getTopSongs();
         // One hit wonders 
@@ -42,7 +42,7 @@
         </ul>
         <ul>
         <h1>Top Artists</h1>
-        <?php foreach($topSong as $row){
+        <?php foreach($topArtist as $row){
                 echo "<li>" . $row['artist_name'] . "</li>";}?>     
         </ul>
         <ul>

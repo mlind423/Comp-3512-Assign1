@@ -6,6 +6,7 @@
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
         $songGateway = new MusicDB($conn); //If this is not working you might want to create a new helper class databaseHelper file since it might not work with the one you are useing right now.
+        $AddSQL = "";
         if(!empty($_GET['title'])){
             $AddSQL .= " AND title LIKE ?";
             $AddValue[] = "%".$_GET['title']."%";
@@ -20,7 +21,7 @@
         } */
         if(!empty($_GET['year'])){
             if ($_GET['year']== "less"){
-                $AddSQL .$_ENV= " AND year <= ?";
+                $AddSQL= " AND year <= ?";
                 $AddValue[] = $_GET['year_less'];
             }elseif($_GET['year']== "greater"){
                 $AddSQL  .= " AND year >= ?";
@@ -29,19 +30,20 @@
         }
         if(!empty($_GET['genre_name'])){
             $AddSQL .= " AND genre_name LIKE ?";
-            $AddValue[] = $_GET['genre_name'];
+            $AddValue[] = (string)$_GET['genre_name'];
         }
         /* if(!empty($_GET['popularity'])){
             $AddSQL[] = " popularity LIKE ?";
             $AddValue[] = $_GET['popularity'];
         } */
         if(!empty($_GET['popu'])){
-            if ($_GET['popu']== "less"){
-                $AddSQL .= " popularity <= ?";
-                $AddValue[] = $_GET['pop_less'];
-            }elseif ($_GET['popu']== "greater"){
-                $AddSQL .= " popularity >= ?";
+            if ($_GET['popu']== "greater"){
+                $AddSQL .= " AND popularity >= ?";
                 $AddValue[] = $_GET['pop_greater'];
+                
+            }elseif ($_GET['popu']== "less"){
+                $AddSQL .= " AND popularity < ?";
+                $AddValue[] = $_GET['pop_less'];
             }
         }
 
