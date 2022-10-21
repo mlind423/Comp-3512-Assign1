@@ -18,13 +18,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="CSS/Search.css">-->
+    <link rel="stylesheet" href="CSS/primary.css">
     <title>Search</title>
 </head>
 <body>
     <?php include('Header.php')?>
-    <h1>Search</h1>
-    <div>
+    <div class="content">
+        <h1>Search</h1>
         <form action="/Comp-3512-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
             <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">

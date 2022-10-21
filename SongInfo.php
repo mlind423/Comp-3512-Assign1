@@ -20,11 +20,12 @@ try{
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/primary.css">
     <title>Song Info</title>
 </head>
 <body>
     <?php include('Header.php')?>
-    <div>
+    <div class="content">
         <table> 
                 <?php //used a table since I was originally displaying every item in the database in the page 
                 foreach($song as $row){ //TODO change this from being in a table once we start styling
@@ -46,9 +47,6 @@ try{
                 ?>
                 
         </table>
-
-    </div>
-    <div>
         
             <?php foreach($song as $row){?> 
                 <label for="bpm">Beats per minute</label>

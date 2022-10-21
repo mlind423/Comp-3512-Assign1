@@ -31,50 +31,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/primary.css">
     <title>Document</title>
 </head>
 <body>
     <?php include('Header.php')?>   
-        <ul>
-        <h1>Top Genres</h1>
-            <?php foreach($topGenre as $row){
-                    echo "<li>" . $row['genre_name'] . "</li>";}?>
-        </ul>
-        <ul>
-        <h1>Top Artists</h1>
-        <?php foreach($topArtist as $row){
-                echo "<li>" . $row['artist_name'] . "</li>";}?>     
-        </ul>
-        <ul>
-        <h1>Top Songs</h1>
-        <?php foreach($topSong as $row){
-                echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
-        </ul>
-        <ul>
-        <h1>One Hit Wonders</h1>
-        <?php foreach($oneHitWonder as $row){
-                echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
-        </ul>
-        <ul>
-            <h1>Longest Acoustic Song</h1>
-            <?php foreach($acoustic as $row){
-                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
-        </ul>
-        <ul>
-        <h1>At The Club</h1>
-            <?php foreach($club as $row){
-                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
-        </ul>
-        <ul>
-        <h1>Running songs</h1>
-            <?php foreach($run as $row){
-                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
-        </ul> 
-        <ul>
-        <h1>Study Songs</h1>
-            <?php foreach($study as $row){
-                    echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
-        </ul>
+        <div class="content home_container">
+            <div class="homepage_grid"> 
+                <h1>Top Genres</h1>
+                <ul>
+                    <?php foreach($topGenre as $row){
+                            echo "<li>" . $row['genre_name'] . "</li>";}?>
+                </ul>
+            </div>
+            <div class="homepage_grid">
+                <h1>Top Artists</h1>
+                <ul>
+                <?php foreach($topArtist as $row){
+                        echo "<li>" . $row['artist_name'] . "</li>";}?>     
+                </ul>
+            </div>
+            <div class="homepage_grid">
+                <h1>Top Songs</h1>
+                <ul>
+                <?php foreach($topSong as $row){
+                        echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
+                </ul>
+            </div>
+            <div class="homepage_grid">
+                <h1>One Hit Wonders</h1>
+                <ul>
+                <?php foreach($oneHitWonder as $row){
+                        echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
+                </ul>
+            </div>
+            <div class="homepage_grid">
+                <h1>Longest Acoustic Song</h1>
+                <ul>
+                <?php foreach($acoustic as $row){
+                        echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
+                </ul>
+            </div>
+            <div class="homepage_grid">
+                <h1>At The Club</h1>
+                <ul>
+                <?php foreach($club as $row){
+                        echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
+                </ul>
+            </div>
+            <div class="homepage_grid">
+                <h1>Running songs</h1>
+                <ul>
+                <?php foreach($run as $row){
+                        echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
+                </ul> 
+            </div>
+            <div class="homepage_grid">
+                <h1>Study Songs</h1>
+                <ul>
+                <?php foreach($study as $row){
+                        echo "<li><a href='SongInfo.php?songID=" . $row['song_id'] . "'>" . $row['title'] . '</a> By ' . $row['artist_name'] . "</li>";}?>
+                </ul>
+            </div>
+        </div>
     <?php include('Footer.php')?>
 </body>
 </html>

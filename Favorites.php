@@ -38,11 +38,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/primary.css">
     <title>Song browser</title>
 </head>
 <body>
     <?php include('Header.php')?>
-    <div>
+    <div class="content">
         <table>
             <tr>
                 <th>Title</th>
@@ -57,17 +58,17 @@
                 foreach($songs as $curr){
                     ?>
                     <tr>
-                        <th><?=$curr['title']?></th>
-                        <th><?=$curr['artist_name']?></th>
-                        <th><?=$curr['year']?></th>
-                        <th><?=$curr['genre_name']?></th>
-                        <th><?=$curr['popularity']?></th>
-                        <th><a class="Fav_Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
+                        <td><?=$curr['title']?></td>
+                        <td><?=$curr['artist_name']?></td>
+                        <td class="table_year"><?=$curr['year']?></td>
+                        <td><?=$curr['genre_name']?></td>
+                        <td><?=$curr['popularity']?></td>
+                        <td><a class="Fav_Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
                             Remove From Favorites
-                        </a></th>
-                        <th><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                        </a></td>
+                        <td><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
                             View
-                        </a></th>
+                        </a></td>
                     </tr>    
                 <?php
                 }

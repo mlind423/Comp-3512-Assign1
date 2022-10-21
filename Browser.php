@@ -62,11 +62,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/primary.css">
     <title>Song browser</title>
 </head>
 <body>
     <?php include('Header.php')?>
-    <div>
+    <div class="content">
         <table>
             <tr>
                 <th>Title</th>
@@ -81,7 +82,7 @@
                 <tr>
                     <td><?=$curr['title']?></td>
                     <td><?=$curr['artist_name']?></td>
-                    <td><?=$curr['year']?></td>
+                    <td class="table_year"><?=$curr['year']?></td>
                     <td><?=$curr['genre_name']?></td>
                     <td><?=$curr['popularity']?></td>
                     <td><a class="Fav_Button" href="addToFavorites.php?AddID=<?=$curr["song_id"]?>">

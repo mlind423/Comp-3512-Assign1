@@ -1,0 +1,48 @@
+body{
+    margin-left: auto;
+    margin-right: auto;
+}
+header{
+    position: fixed;
+    top: 0;
+    background-color: yellow;
+    margin: 0;
+    width: 100%;
+    padding: 6px;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: yellow;
+    padding: 6px;
+}
+.content{
+    padding-top: 144px;/* TODO: Fix this number once the rest of styling is done */
+    padding-bottom: 132px;
+}
+tr:nth-child(even) {
+    background-color: rgba(47, 59, 64, 0.35);
+}
+table, td, th {
+    border: 1px solid;
+} 
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.table_year{
+    width: 60px;
+    margin-left: 3px;
+}
+.home_container{
+    display: grid;
+    width: 90%;
+    margin: auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+.homepage_grid{
+    background-color: lightslategrey;
+}
