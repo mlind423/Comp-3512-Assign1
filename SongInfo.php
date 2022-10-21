@@ -26,7 +26,15 @@ try{
 <body>
     <?php include('Header.php')?>
     <div class="content">
-        <table> 
+        <table class="songInfo"> 
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Artist Type</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Length</th>
+            </tr>
                 <?php //used a table since I was originally displaying every item in the database in the page 
                 foreach($song as $row){ //TODO change this from being in a table once we start styling
                     $length = $row['duration'];
@@ -47,26 +55,26 @@ try{
                 ?>
                 
         </table>
-        
-            <?php foreach($song as $row){?> 
-                <label for="bpm">Beats per minute</label>
-                <progress min="0" max="300" value="<?= $row['bpm']?>" id="bpm"></progress></br>
-                <label>Energy</label>
-                <progress min="0" max="100" value="<?= $row['energy']?>"></progress></br>
-                <label>Danceability</label>
-                <progress min="0" max="100" value="<?= $row['danceability']?>"></progress></br>
-                <label>Liveness</label>
-                <progress min="0" max="100" value="<?= $row['liveness']?>"></progress></br>
-                <label>Valence</label>
-                <progress min="0" max="100" value="<?= $row['valence']?>"></progress></br>
-                <label>Acousticness</label>
-                <progress min="0" max="100" value="<?= $row['acousticness']?>"></progress></br>
-                <label>Speechiness</label>
-                <progress min="0" max="100" value="<?= $row['speechiness']?>"></progress></br>
-                <label>Popularity</label>
-                <progress min="0" max="100" value="<?= $row['popularity']?>"></progress></br>
-            <?php }?>
-        
+            <div class="progress">
+                <?php foreach($song as $row){?> 
+                    <label for="bpm">Beats per minute</label>
+                    <progress min="0" max="300" value="<?= $row['bpm']?>" id="bpm"></progress></br>
+                    <label>Energy</label>
+                    <progress min="0" max="100" value="<?= $row['energy']?>"></progress></br>
+                    <label>Danceability</label>
+                    <progress min="0" max="100" value="<?= $row['danceability']?>"></progress></br>
+                    <label>Liveness</label>
+                    <progress min="0" max="100" value="<?= $row['liveness']?>"></progress></br>
+                    <label>Valence</label>
+                    <progress min="0" max="100" value="<?= $row['valence']?>"></progress></br>
+                    <label>Acousticness</label>
+                    <progress min="0" max="100" value="<?= $row['acousticness']?>"></progress></br>
+                    <label>Speechiness</label>
+                    <progress min="0" max="100" value="<?= $row['speechiness']?>"></progress></br>
+                    <label>Popularity</label>
+                    <progress min="0" max="100" value="<?= $row['popularity']?>"></progress></br>
+                <?php }?>
+            </div>
     </div>
     <?php include('Footer.php')?>
 </body>

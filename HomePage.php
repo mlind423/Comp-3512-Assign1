@@ -36,7 +36,9 @@
 </head>
 <body>
     <?php include('Header.php')?>   
+    
         <div class="content home_container">
+            
             <div class="homepage_grid"> 
                 <h1>Top Genres</h1>
                 <ul>
@@ -94,6 +96,7 @@
                 </ul>
             </div>
         </div>
+        
     <?php include('Footer.php')?>
 </body>
 </html>

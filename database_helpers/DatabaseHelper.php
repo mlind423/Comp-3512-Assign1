@@ -10,10 +10,11 @@ class Databasehelper{
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         return $pdo;
-        $pdo=null;
+        $pdo=null; //I really dont know if this closes the connection since it happens after a return and is most likely not run 
         }
     public static function runQuery($connection, $sql, $parameters){
         $s = null; //$s == Statement
+        //allows for extra statment parameters to be passed into the sql and prevents against sql injection 
         if(isset($parameters)){
             if(!is_array($parameters)){
                 $parameters = array($parameters);
