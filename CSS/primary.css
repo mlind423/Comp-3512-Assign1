@@ -1,5 +1,5 @@
 :root{
-    --Background: #A567FF;
+    --Background: #18191A;
     --HeaderFooter:#2D1D44;
     --CurrentPage: #810050;
 }
@@ -10,6 +10,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     background-color:  var(--Background);
+    color: white;
+    font-family: Helvetica, Sans-Serif;
 }
 nav{
     width: 90%;
@@ -40,10 +42,9 @@ header a{
     border: 1px var(--HeaderFooter);
     background-color: var(--HeaderFooter);
     text-decoration: none;
-    text-size-adjust: 14pt;
     width: 100px;
     text-align: center;
-    font-size: 14pt;
+    font-size: 12pt;
     border-radius: 5%;
 }
 
@@ -77,11 +78,12 @@ footer{
     bottom: 0;
     width: 100%;
     background-color: var(--HeaderFooter);
-    margin: auto;
     color: white;
+    margin: auto;
+    padding-bottom: 10px;
 }
 .Github{
-    width: 40%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
 }
@@ -93,7 +95,9 @@ footer a{
     border: 1px var(--HeaderFooter);
     background-color: var(--HeaderFooter);
     text-decoration: none;
-    text-size-adjust: 14pt;
+    width: 100px;
+    text-align: center;
+    border-radius: 5%;
 }
 footer a:visited{
     color: white;
@@ -107,10 +111,10 @@ footer a:hover{
 
 .content{
     padding-top: 144px;/* TODO: Fix this number once the rest of styling is done */
-    padding-bottom: 132px;
+    padding-bottom: 300px;
 }
 tr:nth-child(even) {
-    background-color: rgba(47, 59, 64, 0.35);
+    background-color: rgba(63, 63, 63, 0.35);
 }
 table, td, th {
     /* border: 1px solid; */
@@ -118,11 +122,12 @@ table, td, th {
     font-size: 1.05rem;
 } 
 table{
-    border-collapse: collapse;
-    /* width: 10%; */
+    border-collapse: separate;
+    border-spacing: 0 10px;
     width: 80vw;
     text-align: center;
     margin: auto;
+    border-radius: 50%;
 }
 .table_year{
     width: 60px;
@@ -145,16 +150,23 @@ table{
 .songInfo{
     margin: auto;
     width: 80%;
-    border: 0px solid green;
     padding: 10px;
 }
 .songInfo tr{
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: var(--Background);
 }
-div.progress progress{
+.songInfo tr:nth-child(2){
+    background-color: rgba(63, 63, 63, 0.35);
+}
+div.progress{
     margin: auto;
-    width: 20%;
+    width: 50%;
     padding: 10px;
+    background-color: var(--Background);
+    text-align:center;
+}
+progress{
+    width: 75%;
 }
 .progress label{
     padding: 40px;
@@ -174,6 +186,11 @@ div.progress progress{
 .Button:hover{
     background-color: #7D3C98;
 }
+.bars{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 
 /* This was generated at https://www.shapedivider.app */
 .custom-shape-divider-top-1666384790 {

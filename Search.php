@@ -25,7 +25,7 @@
     <?php include('Header.php')?>
     <div class="content">
         <h1>Search</h1>
-        <form action="/Comp-3512-Assign1/Browser.php" method="GET"><!-- I set this to GET but we might want to change it to POST so the URL is not massive -->
+        <form action="/Comp-3512-Assign1/Browser.php?" method="GET">
             <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">
                 <label for="title">Title</label></br>

@@ -57,22 +57,38 @@ try{
         </table>
             <div class="progress">
                 <?php foreach($song as $row){?> 
-                    <label for="bpm">Beats per minute</label>
-                    <progress min="0" max="300" value="<?= $row['bpm']?>" id="bpm"></progress></br>
-                    <label>Energy</label>
-                    <progress min="0" max="100" value="<?= $row['energy']?>"></progress></br>
-                    <label>Danceability</label>
-                    <progress min="0" max="100" value="<?= $row['danceability']?>"></progress></br>
-                    <label>Liveness</label>
-                    <progress min="0" max="100" value="<?= $row['liveness']?>"></progress></br>
-                    <label>Valence</label>
-                    <progress min="0" max="100" value="<?= $row['valence']?>"></progress></br>
-                    <label>Acousticness</label>
-                    <progress min="0" max="100" value="<?= $row['acousticness']?>"></progress></br>
-                    <label>Speechiness</label>
-                    <progress min="0" max="100" value="<?= $row['speechiness']?>"></progress></br>
-                    <label>Popularity</label>
-                    <progress min="0" max="100" value="<?= $row['popularity']?>"></progress></br>
+                    <div class="bars">
+                    <label for="bpm">Beats per minute</label></br>
+                    Low <progress min="0" max="300" value="<?= $row['bpm']?>" id="bpm"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Energy</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['energy']?>"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Danceability</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['danceability']?>"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Liveness</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['liveness']?>"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Valence</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['valence']?>"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Acousticness</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['acousticness']?>"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Speechiness</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['speechiness']?>"></progress> High</br>
+                    </div>
+                    <div class="bars">
+                    <label>Popularity</label></br>
+                    Low <progress min="0" max="100" value="<?= $row['popularity']?>"></progress> High</br>
+                    </div>
                 <?php }?>
             </div>
     </div>

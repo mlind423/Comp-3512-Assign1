@@ -88,10 +88,10 @@
                     <td><a class="Button" href="addToFavorites.php?AddID=<?=$curr["song_id"]?>">
                         Add to Favorites
                     </a></td>
-                    <td><a class="Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                    <td><a class="Button" href="SongInfo.php?curr=si&songID=<?=$curr["song_id"]?>">
                         View
                     </a></td>
-                </tr>    
+                </tr>  
                 <?php
             }
             

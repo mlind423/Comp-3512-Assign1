@@ -4,16 +4,24 @@
     $b = null;
     $s = null;
     $si = null;
-    if($_GET["curr"] === 'f'){
+    if(!empty($_GET["curr"])){
+        if($_GET["curr"] === 'f'){
+            $f = 'favorites';
+        }else if($_GET["curr"] === 'b'){
+            $b = 'browser';
+        }else if($_GET["curr"] === 'h'){
+            $h = 'home';
+        }else if($_GET["curr"] === 's'){
+            $s = 'search';
+        }else if($_GET["curr"] === 'si'){
+            $si = 'song';
+        }
+    }else{ // since I can't add the query string in the search page I had to test to see if it was giving no query string then do it manually here
+        $b = "browser";
+    }
+    if($_GET["RemAll"] === "yes"){
         $f = 'favorites';
-    }else if($_GET["curr"] === 'b'){
-        $b = 'browser';
-    }else if($_GET["curr"] === 'h'){
-        $h = 'home';
-    }else if($_GET["curr"] === 's'){
-        $s = 'search';
-    }else if($_GET["curr"] === 'si'){
-        $si = 'song';
+        $b = null;
     }
     ?>
     <header>

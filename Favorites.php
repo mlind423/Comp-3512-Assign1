@@ -2,6 +2,7 @@
     session_start();
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
+    
 
     if(!empty($_GET["RemID"])){
         
@@ -63,10 +64,10 @@
                         <td class="table_year"><?=$curr['year']?></td>
                         <td><?=$curr['genre_name']?></td>
                         <td><?=$curr['popularity']?></td>
-                        <td><a class="Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
+                        <td><a class="Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>&curr=f">
                             Remove From Favorites
                         </a></td>
-                        <td><a class="Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                        <td><a class="Button" href="SongInfo.php?curr=si&songID=<?=$curr["song_id"]?>">
                             View
                         </a></td>
                     </tr>    
