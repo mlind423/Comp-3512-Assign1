@@ -68,7 +68,7 @@
 <body>
     <?php include('Header.php')?>
     <div class="content">
-        <table>
+        <table class="browse">
             <tr>
                 <th>Title</th>
                 <th>Artist</th>
@@ -85,10 +85,10 @@
                     <td class="table_year"><?=$curr['year']?></td>
                     <td><?=$curr['genre_name']?></td>
                     <td><?=$curr['popularity']?></td>
-                    <td><a class="Fav_Button" href="addToFavorites.php?AddID=<?=$curr["song_id"]?>">
+                    <td><a class="Button" href="addToFavorites.php?AddID=<?=$curr["song_id"]?>">
                         Add to Favorites
                     </a></td>
-                    <td><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                    <td><a class="Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
                         View
                     </a></td>
                 </tr>    

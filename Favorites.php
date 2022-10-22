@@ -39,7 +39,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/primary.css">
-    <title>Song browser</title>
+    <title>Favorites</title>
 </head>
 <body>
     <?php include('Header.php')?>
@@ -51,7 +51,7 @@
                 <th>Year</th>
                 <th>Genre</th>
                 <th>Popularity</th>
-                <th><a href="Favorites.php?RemAll=yes">Remove All</a></th>
+                <th><a href="Favorites.php?RemAll=yes" class="Button">Remove All</a></th>
             </tr>
             <?php
             if(!empty($songs)){
@@ -63,10 +63,10 @@
                         <td class="table_year"><?=$curr['year']?></td>
                         <td><?=$curr['genre_name']?></td>
                         <td><?=$curr['popularity']?></td>
-                        <td><a class="Fav_Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
+                        <td><a class="Button" href="Favorites.php?RemID=<?=$curr["song_id"]?>">
                             Remove From Favorites
                         </a></td>
-                        <td><a class="View_Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
+                        <td><a class="Button" href="SongInfo.php?songID=<?=$curr["song_id"]?>">
                             View
                         </a></td>
                     </tr>    

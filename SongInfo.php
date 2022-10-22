@@ -35,8 +35,8 @@ try{
                 <th>Year</th>
                 <th>Length</th>
             </tr>
-                <?php //used a table since I was originally displaying every item in the database in the page 
-                foreach($song as $row){ //TODO change this from being in a table once we start styling
+                <?php 
+                foreach($song as $row){ 
                     $length = $row['duration'];
                     $minutes = number_format($length/60, 0);
                     $seconds = number_format($length%60);

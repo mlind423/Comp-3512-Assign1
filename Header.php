@@ -1,17 +1,31 @@
-<?php
+<?php //This will allow for the current pages link to be a different color so the user knows which page they are currently on
+    $f = null;
+    $h = null;
+    $b = null;
+    $s = null;
+    $si = null;
+    if($_GET["curr"] === 'f'){
+        $f = 'favorites';
+    }else if($_GET["curr"] === 'b'){
+        $b = 'browser';
+    }else if($_GET["curr"] === 'h'){
+        $h = 'home';
+    }else if($_GET["curr"] === 's'){
+        $s = 'search';
+    }else if($_GET["curr"] === 'si'){
+        $si = 'song';
+    }
     ?>
     <header>
         <h1>COMP 3512 Assign1</h1>
         <h3>Matthew Lindstrom, Spencer Reid</h3>
         
         <nav> 
-            <a href="HomePage.php">Home</a>
-            <a href="Search.php">Search</a>
-            <a href="SongInfo.php">Single Song</a>
-            <a href="Browser.php">Browse</a>
-            <a href="Favorites.php">Favorites</a>
-            
-
+            <a href="HomePage.php?curr=h" class="<?=$h?>">Home</a>
+            <a href="Search.php?curr=s" class="<?=$s?>">Search</a>
+            <a href="SongInfo.php?curr=si" class="<?=$si?>">Single Song</a>
+            <a href="Browser.php?curr=b"class="<?=$b?>">Browse</a>
+            <a href="Favorites.php?curr=f" class="<?=$f?>">Favorites</a>
         </nav>
         <!-- This was generated at https://www.shapedivider.app -->
         <div class="custom-shape-divider-top-1666384790">

@@ -1,6 +1,7 @@
 :root{
     --Background: #A567FF;
     --HeaderFooter:#2D1D44;
+    --CurrentPage: #810050;
 }
 body{
     min-width: 100%;
@@ -40,6 +41,10 @@ header a{
     background-color: var(--HeaderFooter);
     text-decoration: none;
     text-size-adjust: 14pt;
+    width: 100px;
+    text-align: center;
+    font-size: 14pt;
+    border-radius: 5%;
 }
 
 header a:visited{
@@ -50,6 +55,21 @@ header a:link{
 }
 header a:hover{
     background-color: #7D3C98;
+}
+a.favorites{
+    background-color: var(--CurrentPage);
+}
+a.browser{
+    background-color: var(--CurrentPage);
+}
+a.search{
+    background-color: var(--CurrentPage);
+}
+a.song{
+    background-color: var(--CurrentPage);
+}
+a.home{
+    background-color: var(--CurrentPage);
 }
 
 footer{
@@ -93,11 +113,16 @@ tr:nth-child(even) {
     background-color: rgba(47, 59, 64, 0.35);
 }
 table, td, th {
-    border: 1px solid;
+    /* border: 1px solid; */
+    padding: 20px;
+    font-size: 1.05rem;
 } 
 table{
     border-collapse: collapse;
-    width: 100%;
+    /* width: 10%; */
+    width: 80vw;
+    text-align: center;
+    margin: auto;
 }
 .table_year{
     width: 60px;
@@ -134,6 +159,22 @@ div.progress progress{
 .progress label{
     padding: 40px;
 }
+.Button{
+    background-color: #441D3C;
+    border: #441D3C;
+    color: white;
+    border-radius: 25px;
+    padding: 10px 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.Button:visited{
+    color: white;
+}
+.Button:hover{
+    background-color: #7D3C98;
+}
+
 /* This was generated at https://www.shapedivider.app */
 .custom-shape-divider-top-1666384790 {
     position: absolute;
@@ -143,7 +184,6 @@ div.progress progress{
     overflow: hidden;
     line-height: 0;
 }
-
 .custom-shape-divider-top-1666384790 svg {
     position: relative;
     display: block;
@@ -151,7 +191,6 @@ div.progress progress{
     height: 42px;
     transform: rotateY(180deg);
 }
-
 .custom-shape-divider-top-1666384790 .shape-fill {
     fill: var(--HeaderFooter);
 }
