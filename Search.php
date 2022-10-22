@@ -24,7 +24,6 @@
 <body>
     <?php include('Header.php')?>
     <div class="content">
-        <h1>Search</h1>
         <form action="/Comp-3512-Assign1/Browser.php?" method="GET">
             <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">

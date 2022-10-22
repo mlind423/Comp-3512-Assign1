@@ -1,11 +1,10 @@
-<!-- You are going to need to do a lot of if/else statements to determine the search params -->
 <?php
     require_once('database_helpers/config.inc.php'); 
     require_once('database_helpers/DatabaseHelper.php');
 
     try{
         $conn = Databasehelper::createConnection(array(DBCONNSTRING,DBUSER,DBPASS));
-        $songGateway = new MusicDB($conn); //If this is not working you might want to create a new helper class databaseHelper file since it might not work with the one you are useing right now.
+        $songGateway = new MusicDB($conn); 
         $AddSQL = "";
         if(!empty($_GET['title'])){
             $AddSQL .= " AND title LIKE ?";

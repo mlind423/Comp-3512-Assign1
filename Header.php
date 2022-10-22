@@ -18,11 +18,12 @@
         }
     }else{ // since I can't add the query string in the search page I had to test to see if it was giving no query string then do it manually here
         $b = "browser";
+        if($_GET["RemAll"] === "yes"){
+            $f = 'favorites';
+            $b = null;
+        }
     }
-    if($_GET["RemAll"] === "yes"){
-        $f = 'favorites';
-        $b = null;
-    }
+    
     ?>
     <header>
         <h1>COMP 3512 Assign1</h1>
