@@ -28,7 +28,7 @@
             <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">
                 <label for="title">Title</label></br>
-                <input type="text" name="title"> <!-- the query string will show up with the name of each of the input fields-->
+                <input type="text" name="title" id="title_text"> <!-- the query string will show up with the name of each of the input fields-->
             </div>
             <div id="artist" class="artist">
                 <input type="radio" name="main" value="Artist" id="artist">
@@ -62,7 +62,7 @@
                     <label for="less">Less</label>
                     <input type="number" name="year_less" min="2016" max="2018">
                 </fieldset>
-                    </div>
+            </div>
             <div id="popularity">
                 <input type="radio" name="main" value="Popularity" id="popularity">
                 <label for="popularity">Popularity</label>
@@ -76,7 +76,10 @@
                     <input type="number" name="pop_less" min="0" max="100">
                 </fieldset>
             </div>
-            <input type="submit" id="submit">
+            <div class="submit">
+                <input type="submit" id="submit">
+            </div>
+            
         </form>
     </div>
     <?php include('Footer.php')?>
