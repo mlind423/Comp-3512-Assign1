@@ -24,7 +24,7 @@
 <body>
     <?php include('include/header.php')?>
     <div class="content">
-        <form action="/Comp-3512-Assign1/Browser.php?" method="GET">
+        <form action="Browser.php?" method="GET">
             <div id="title" class="title">
                 <input type="radio" id="title" name="main" value="Title">
                 <label for="title">Title</label></br>
