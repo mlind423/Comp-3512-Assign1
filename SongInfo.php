@@ -24,7 +24,7 @@ try{
     <title>Song Info</title>
 </head>
 <body>
-    <?php include('Header.php')?>
+    <?php include('include/header.php')?>
     <div class="content">
         <table class="songInfo"> 
             <tr>
@@ -92,6 +92,6 @@ try{
                 <?php }?>
             </div>
     </div>
-    <?php include('Footer.php')?>
+    <?php include('include/Footer.php')?>
 </body>
 </html>

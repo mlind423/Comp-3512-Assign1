@@ -65,7 +65,7 @@
     <title>Song browser</title>
 </head>
 <body>
-    <?php include('Header.php')?>
+    <?php include('include/header.php')?>
     <div class="content">
         <table class="browse">
             <tr>
@@ -97,6 +97,6 @@
             ?>
         </table>    
     </div> 
-    <?php include('Footer.php')?>
+    <?php include('include/Footer.php')?>
 </body>
 </html>

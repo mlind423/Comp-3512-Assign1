@@ -22,7 +22,7 @@
     <title>Search</title>
 </head>
 <body>
-    <?php include('Header.php')?>
+    <?php include('include/header.php')?>
     <div class="content">
         <form action="/Comp-3512-Assign1/Browser.php?" method="GET">
             <div id="title" class="title">
@@ -82,6 +82,6 @@
             
         </form>
     </div>
-    <?php include('Footer.php')?>
+    <?php include('include/Footer.php')?>
 </body>
 </html>
