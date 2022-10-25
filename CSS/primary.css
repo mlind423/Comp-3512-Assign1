@@ -6,12 +6,13 @@
 body{
     min-width: 100%;
     position: relative;
-    min-height: 99vh;
+    min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
     background-color:  var(--Background);
     color: white;
     font-family: Helvetica, Sans-Serif;
+    margin: 0px;
 }
 nav{
     width: 90%;
@@ -75,12 +76,15 @@ a.home{
 
 footer{
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
     background-color: var(--HeaderFooter);
     color: white;
     margin: auto;
-    padding-bottom: 10px;
+
+}
+footer>*{
+    margin-left: 10px;
 }
 .Github{
     width: 60%;
@@ -110,8 +114,8 @@ footer a:hover{
 }
 
 .content{
-    padding-top: 144px;/* TODO: Fix this number once the rest of styling is done */
-    padding-bottom: 300px;
+    padding-top: 144px;
+    padding-bottom: 175px;
 }
 tr:nth-child(even) {
     background-color: rgba(63, 63, 63, 0.35);
@@ -145,16 +149,23 @@ table{
 .homepage_grid{
     background-color: rgb(53, 55, 57);
     min-width: 200px;
-    max-height: 600px;
+    max-height: 650px;
     padding-left: 2%;
     padding-right: 2%; 
     box-shadow: 4px 8px 16px -3px rgba(0,0,0,0.76);
+}
+.homepage_grid > ul > li{
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 .homepage_grid a:link{
     color: white;
 }
 .homepage_grid a:visited{
-    color: black;
+    color: mediumslateblue ;
+}
+.homepage_grid a:hover{
+    background-color: black;
 }
 .songInfo{
     margin: auto;
@@ -164,8 +175,8 @@ table{
 .songInfo tr{
     background-color: var(--Background);
 }
-.songInfo tr:nth-child(2){
-    background-color: rgba(63, 63, 63, 0.35);
+.songInfo a:hover{
+    background-color: #7D3C98;
 }
 div.progress{
     margin: auto;
