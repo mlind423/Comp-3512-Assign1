@@ -30,7 +30,7 @@
         <h3>Matthew Lindstrom, Spencer Reid</h3>
         
         <nav> 
-            <a href="index.php.php?curr=h" class="<?=$h?>">Home</a>
+            <a href="index.php?curr=h" class="<?=$h?>">Home</a>
             <a href="Search.php?curr=s" class="<?=$s?>">Search</a>
             <a href="SongInfo.php?curr=si" class="<?=$si?>">Single Song</a>
             <a href="Browser.php?curr=b"class="<?=$b?>">Browse</a>
